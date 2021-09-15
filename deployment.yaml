@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: luna-api
+spec:
+  selector:
+    matchLabels:
+      app: luna-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: luna-api
+    spec:
+      containers:
+      - name: luna-api
+        image: jaimesan/luna:v1
+        ports:
+        - containerPort: 8000
